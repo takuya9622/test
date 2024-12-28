@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 
 Route::get('/', [ItemController::class, 'index'])->name('items.index');
@@ -14,4 +15,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/order/store/{itemId}', [OrderController::class, 'store'])->name('order.store');
     Route::get('/success', [OrderController::class, 'success'])->name('checkout.success');
     Route::get('/cancel', [OrderController::class, 'cancel'])->name('checkout.cancel');
+    Route::post('/comments/{itemId}', [CommentController::class, 'store'])->name('comments.store');
 });
