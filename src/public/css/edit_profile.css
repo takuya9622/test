@@ -1,0 +1,46 @@
+.mypage-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-edit-container {
+    width: 680px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding-left: 60px;
+}
+
+.profile-image {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    align-items: center;
+}
+
+.select-profile-image {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+
+}
+
+.select-image-button {
+    font-size: 20px;
+    max-width: 176px;
+    height: auto;
+}
+
+.error-image {
+    position: absolute;
+    top: 60px;
+}

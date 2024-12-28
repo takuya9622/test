@@ -22,5 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
     Route::get('/mypage', [UserController::class, 'index'])->name('profile.index');
+    Route::get('/mypage/profile', [UserController::class, 'editProfile'])->name('profile.edit');
+    Route::patch('/mypage/profile', [UserController::class, 'updateProfile'])->name('profile.update');
     Route::post('/comments/{itemId}', [CommentController::class, 'store'])->name('comments.store');
 });
