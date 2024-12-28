@@ -112,8 +112,7 @@ STRIPE_SECRET=sk_test_example <br />
 
 ```composer install```
 
-```php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
-```
+```php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"```
 
 ```php artisan key:generate```
 

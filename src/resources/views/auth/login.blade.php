@@ -11,7 +11,7 @@
         <form method="POST" action="{{ route('login') }}" novalidate>
     @csrf
             <div class="form-group">
-                <div class="form-group_label-and-error">
+                <div class="form-group-label-and-error">
                     <label for="email">メールアドレス</label>
                     @error('email')
                     <p class="error">{{ $message }}</p>
@@ -20,7 +20,7 @@
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required>
             </div>
             <div class="form-group">
-                <div class="form-group_label-and-error">
+                <div class="form-group-label-and-error">
                     <label for="password">パスワード</label>
                     @error('password')
                     <p class="error">{{ $message }}</p>
