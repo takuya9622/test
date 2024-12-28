@@ -1,2 +1,15 @@
 *
+!/items
+!/items/1.jpg
+!/items/2.jpg
+!/items/3.jpg
+!/items/4.jpg
+!/items/5.jpg
+!/items/6.jpg
+!/items/7.jpg
+!/items/8.jpg
+!/items/9.jpg
+!/items/10.jpg
+!/users
+!/users/default.png
 !.gitignore
