@@ -57,7 +57,9 @@
 
 以下のコマンドでリポジトリをクローン
 
-```git clone https://github.com/takuya9622/cfm.git```
+```
+git clone https://github.com/takuya9622/cfm.git
+```
 
 必要であれば以下のコマンドでリモートリポジトリに紐づけ
 
