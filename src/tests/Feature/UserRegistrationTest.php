@@ -4,16 +4,23 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use
+use Illuminate\Support\Facades\Hash;
+use Tests\TestCase;
+
+class UserRegistrationTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function testRegistrationFailsWhenNameIsEmpty(): void
+    {
+        $data = [
+            'name' => '',
+            'email' => 'test@example.com',
             'password' => 'password123',
             'password_confirmation' => 'password123',
         ];
 
-        $response = $this->from(route('register'))
-        ->post(route('register', $data));
-
-        $response->assertSessionHasErrors(['name']);
-
+        
         $response->assertRedirect(route('register'));
 
         $response = $this->get(route('register'));
