@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Stripe\Stripe;
 use Stripe\Checkout\Session as StripeSession;
+use App\Http\Requests\AddressRequest;
 use App\Http\Requests\PurchaseRequest;
 use App\Models\Item;
 use App\Models\Order;
@@ -30,6 +31,25 @@ class OrderController extends Controller
         $shippingAddress = session('shipping_address', []);
 
         return view('purchase', compact('item', 'user', 'shippingAddress', 'option', 'paymentMethod'));
+    }
+
+    public function editAddress($itemId) {
+        $item = Item::findOrFail($itemId);
+        $user = auth()->user();
+
+        return view('change_address', compact('item', 'user'));
+    }
+
+    public function updateAddress(AddressRequest $request, $itemId) {
+        $shippingAddress = [
+            'postal_code' => $request->input('postal_code'),
+            'address' => $request->input('address'),
+            'building' => $request->input('building'),
+        ];
+
+        session()->put('shipping_address', $shippingAddress);
+
+        return redirect()->route('purchase.create', ['itemId' => $itemId]);
     }
 
     public function store(PurchaseRequest $request, $itemId)
