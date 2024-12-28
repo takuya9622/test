@@ -20,7 +20,7 @@
 </div>
 
 <div>
-    <nav class="products-tab">
+    <nav class="items-tab">
         <ul class="tabs">
             <li class="{{ $tab === 'sell' ? 'active-tab' : '' }}">
                 <a href="{{ route('profile.index', ['tab' => 'sell']) }}">
@@ -36,16 +36,16 @@
     </nav>
 </div>
 
-<div class="products-container">
+<div class="items-container">
     @forelse ($items as $item)
-    <div class="product" data-item-id="{{ $item->id }}">
-        <a href="{{ route('items.show', $item->id) }}" class="product-link">
-            <div class="product-image">
+    <div class="item" data-item-id="{{ $item->id }}">
+        <a href="{{ route('items.show', $item->id) }}" class="item-link">
+            <div class="item-image">
                 <img src="{{ asset('storage/' . $item->item_image) }}" alt="{{ $item->title }}">
             </div>
-            <p class="product-name">{{ $item->title }}</p>
+            <p class="item-name">{{ $item->title }}</p>
             @if ($item->status == 'sold')
-            <p class="product-status">Sold</p>
+            <p class="item-status">Sold</p>
             @endif
         </a>
     </div>

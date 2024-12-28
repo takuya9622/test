@@ -57,6 +57,7 @@ class UserController extends Controller
         $user->postal_code = $request->input('postal_code');
         $user->address = $request->input('address');
         $user->building = $request->input('building');
+        $user->save();
 
         return redirect()->route('profile.edit')->with('status', 'プロフィールを更新しました！');
     }
