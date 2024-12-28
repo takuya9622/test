@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ExhibitionRequest;
+use App\Models\Category;
 use App\Models\Item;
 
 class ItemController extends Controller
@@ -51,4 +53,36 @@ class ItemController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        $categories = Category::pluck('name', 'id')->toArray();
+
+        return view('exhibition', compact('categories'));
     }
+
+    public function store(ExhibitionRequest $request)
+    {
+        $item = new Item();
+        $item->title = $request->input('title');
+        $item->description = $request->input('description');
+        $item->price = $request->input('price');
+        $item->condition = $request->input('condition');
+        $item->brand_name = $request->input('brand_name');
+        $item->status = Item::STATUS_AVAILABLE;
+        $item->seller_id = Auth::id();
+
+        if ($request->hasFile('item_image')) {
+            $item->item_image = $request->file('item_image')->store('items', 'public');
+        }
+
+        $item->save();
+
+        $categories = $request->input('category');
+        if ($categories) {
+            $item->categories()->attach($categories);
+        }
+
+
+        return redirect()->route('items.index');
+    }
+}

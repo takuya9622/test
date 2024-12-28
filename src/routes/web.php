@@ -18,5 +18,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/order/store/{itemId}', [OrderController::class, 'store'])->name('order.store');
     Route::get('/success', [OrderController::class, 'success'])->name('checkout.success');
     Route::get('/cancel', [OrderController::class, 'cancel'])->name('checkout.cancel');
+    Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
+    Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
     Route::post('/comments/{itemId}', [CommentController::class, 'store'])->name('comments.store');
 });
