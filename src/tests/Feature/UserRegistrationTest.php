@@ -4,18 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
-use Tests\TestCase;
-
-class UserRegistrationTest extends TestCase
-{
-    use RefreshDatabase;
-
-    public function testRegistrationFailsWhenNameIsEmpty(): void
-    {
-        $data = [
-            'name' => '',
-            'email' => 'test@example.com',
+use
             'password' => 'password123',
             'password_confirmation' => 'password123',
         ];
