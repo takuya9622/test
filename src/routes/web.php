@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CommentController;
@@ -20,5 +21,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cancel', [OrderController::class, 'cancel'])->name('checkout.cancel');
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
+    Route::get('/mypage', [UserController::class, 'index'])->name('profile.index');
     Route::post('/comments/{itemId}', [CommentController::class, 'store'])->name('comments.store');
 });

@@ -1,0 +1,35 @@
+.mypage-header-container {
+    max-width: 70rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0 100px;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.edit-profile-button {
+    display: inline-block;
+    font-size: 26px;
+}
+
+@media (max-width:1000px) {
+    .mypage-header-container {
+        padding: 0 50px;
+    }
+
+    .logo-container {
+        gap: 25px;
+    }
+
+    .edit-profile-button {
+        font-size: 17px;
+    }
+}
